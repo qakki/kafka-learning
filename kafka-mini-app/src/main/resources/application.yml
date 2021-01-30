@@ -1,0 +1,11 @@
+template:
+  templates:
+    - { "templateId": "1","templateFilePath": "/template/template.json","active": true }
+    - { "templateId": "2","templateFilePath": "/template/template.json","active": false }
+  template-result-type: 0  # 0-文件获取
+  template-result-file-path: "/template/templateResult.json"
+
+wechat:
+  kafka:
+    bootstrap_servers: "127.0.0.1:9092"
+    acks_config: "all"
