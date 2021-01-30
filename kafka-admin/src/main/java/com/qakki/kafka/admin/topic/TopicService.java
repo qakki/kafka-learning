@@ -27,7 +27,7 @@ public class TopicService {
     public static void createTopic() {
         AdminClient adminClient = KafkaConfig.adminClient();
         short rs = 1;
-        NewTopic topic = new NewTopic("qakki_info_topic", 2, rs);
+        NewTopic topic = new NewTopic("stream_in_topic", 1, rs);
         CreateTopicsResult res = adminClient.createTopics(Collections.singletonList(topic));
         System.out.println(res);
     }
@@ -36,9 +36,9 @@ public class TopicService {
         // createTopic();
         // deleteTopic("qakki_info_topic");
         System.out.println(getTopics());
-        describeTopics(Collections.singletonList("test_topic"));
-        describeConfig();
-        increasePartition(2);
+        // describeTopics(Collections.singletonList("test_topic"));
+        // describeConfig();
+        // increasePartition(2);
     }
 
     public static Set<String> getTopics() throws ExecutionException, InterruptedException {
