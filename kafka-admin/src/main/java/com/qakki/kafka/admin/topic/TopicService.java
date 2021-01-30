@@ -38,7 +38,7 @@ public class TopicService {
         System.out.println(getTopics());
         describeTopics(Collections.singletonList("test_topic"));
         describeConfig();
-        // increasePartition(2);
+        increasePartition(2);
     }
 
     public static Set<String> getTopics() throws ExecutionException, InterruptedException {
@@ -68,7 +68,7 @@ public class TopicService {
     public static void increasePartition(int partitions) throws ExecutionException, InterruptedException {
         AdminClient adminClient = KafkaConfig.adminClient();
         CreatePartitionsResult result =
-                adminClient.createPartitions(ImmutableMap.of("test_topic", NewPartitions.increaseTo(partitions)));
+                adminClient.createPartitions(ImmutableMap.of("qakki_info_topic", NewPartitions.increaseTo(partitions)));
         System.out.println(result.all().get());
     }
 

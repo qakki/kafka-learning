@@ -12,6 +12,7 @@
         <module>kafka-admin</module>
         <module>kafka-producer</module>
         <module>kafka-mini-app</module>
+        <module>kafka-consumer</module>
     </modules>
 
     <parent>
@@ -49,6 +50,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>28.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
         </dependency>
     </dependencies>
 </project>

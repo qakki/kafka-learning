@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutionException;
  */
 public class KafkaConfig {
 
-    private static final String TOPIC_NAME = "test_topic";
+    private static final String TOPIC_NAME = "qakki_info_topic";
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         producerSend();
@@ -37,11 +37,6 @@ public class KafkaConfig {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         for (int i = 0; i < 10; i++) {
             ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC_NAME, "key-" + i, "val-" + i);
-            // 阻塞 等待返回
-//            Future<RecordMetadata> future = producer.send(record);
-//            RecordMetadata recordMetadata = future.get();
-//            System.out.println("partition=" + recordMetadata.partition() + " offset=" + recordMetadata.offset());
-
             // 异步回调
             producer.send(record, (recordMetadata, e) -> System.out.println("partition=" + recordMetadata.partition() + " offset=" + recordMetadata.offset()));
 
